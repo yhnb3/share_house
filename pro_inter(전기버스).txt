@@ -1,0 +1,24 @@
+T = int(input())
+# 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
+for test_case in range(1, T + 1):
+    # ///////////////////////////////////////////////////////////////////////////////////
+    K, N, M = input().split(" ")
+    K = int(K)
+    N = int(N)
+    M = int(M)
+    charge = input().split(" ")
+    i = 0
+    count = 0
+    while i + K < N:
+        count1 = count
+        for j in range(K, 0, -1):              
+            if str(i+j) in charge:
+                i += j
+                count += 1
+                break
+                
+        if count1 == count:
+            print(f'#{test_case} 0')
+            break
+    else: 
+        print(f'#{test_case} {count}')
